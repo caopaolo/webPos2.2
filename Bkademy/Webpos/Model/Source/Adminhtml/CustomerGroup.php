@@ -60,7 +60,6 @@ class CustomerGroup implements \Magento\Framework\Option\ArrayInterface {
      */
     public function toOptionArray()
     {
-
         $array = array('all' => __('All groups'));
         $groups = $this->_customerGroupCollectionFactory->create();
         if (count($groups) > 0) {

@@ -53,7 +53,7 @@ abstract class Staff extends \Magento\Backend\App\Action
         $resultPage->addBreadcrumb(__('Staff'), __('Staff'));
         return $resultPage;
     }
-
+    
     /**
      * @return bool
      */

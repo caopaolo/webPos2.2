@@ -1,6 +1,16 @@
 <?php
+/**
+ *  Copyright © 2016 Magestore. All rights reserved.
+ *  See COPYING.txt for license details.
+ *
+ */
+
 namespace Bkademy\Webpos\Block\Adminhtml\Staff\Edit\Tab;
 
+/**
+ * Class Form
+ * @package Magestore\Webpos\Block\Adminhtml\Staff\Staff\Edit\Tab
+ */
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
     implements \Magento\Backend\Block\Widget\Tab\TabInterface
 {
@@ -45,6 +55,11 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         $this->getLayout()->getBlock('page.title')->setPageTitle($this->getPageTitle());
     }
 
+
+    /**
+     * @return $this
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
     protected function _prepareForm()
     {
 
@@ -109,13 +124,13 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             ));
         }
 
-//        $fieldset->addField('customer_group', 'multiselect', array(
-//            'label' => __('Customer Group'),
-//            'class' => 'required-entry',
-//            'required' => true,
-//            'name' => 'customer_group',
-//            'values' => $this->_objectManager->get('Bkademy\Webpos\Model\Source\Adminhtml\CustomerGroup')->toOptionArray()
-//        ));
+        $fieldset->addField('customer_group', 'multiselect', array(
+            'label' => __('Customer Group'),
+            'class' => 'required-entry',
+            'required' => true,
+            'name' => 'customer_group',
+            'values' => $this->_objectManager->get('Bkademy\Webpos\Model\Source\Adminhtml\CustomerGroup')->toOptionArray()
+        ));
 
         $fieldset->addField('status', 'select', array(
             'label' => __('Status'),
@@ -129,28 +144,54 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         $this->setForm($form);
         return parent::_prepareForm();
     }
+
+    /**
+     * @return mixed
+     */
     public function getStaff()
     {
         return $this->_coreRegistry->registry('current_staff');
     }
+
+
+    /**
+     * @return mixed
+     */
     public function getPageTitle()
     {
         return $this->getStaff()->getId() ? __("Edit Staff %1",
             $this->escapeHtml($this->getStaff()->getDisplayName())) : __('New Staff');
     }
+
+
+    /**
+     * @return mixed
+     */
     public function getTabLabel()
     {
         return __('Staff Information');
     }
+
+
+    /**
+     * @return mixed
+     */
     public function getTabTitle()
     {
         return __('Staff Information');
     }
 
+    /**
+     * @return bool
+     */
     public function canShowTab()
     {
         return true;
     }
+
+    /**
+     * @return bool
+     */
     public function isHidden()
     {
         return false;

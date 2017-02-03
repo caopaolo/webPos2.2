@@ -14,5 +14,6 @@
             </argument>
         </arguments>
     </type>
-    <preference for="Bkademy\Webpos\Api\Staff\StaffRepositoryInterface" type="Bkademy\Webpos\Model\Repository\Staff\StaffRepository"/>
+    <preference for="Bkademy\Webpos\Api\Staff\StaffRepositoryInterface"
+                type="Bkademy\Webpos\Model\Repository\Staff\StaffRepository"/>
 </config>
